@@ -12,13 +12,13 @@ import { ServerComponent } from './servers/server/server.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { UserComponent } from './users/user/user.component';
 import { ServersService } from './servers/shared/servers.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'users', component: UsersComponent},
-  {path: 'users/:id/:name', component: UserComponent},
-  {path: 'servers', component: ServersComponent}
-];
+
+/*
+,
+{path: 'servers/:id/edit', component: EditServerComponent}
+*/
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ const appRoutes: Routes = [
     UsersComponent,
     ServerComponent,
     EditServerComponent,
-    UserComponent
+    UserComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
