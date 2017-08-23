@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Data, Params, Router } from '@angular/router';
 
 import { ServersService } from '../shared/servers.service';
 
@@ -19,19 +19,25 @@ export class ServerComponent implements OnInit {
 
   ngOnInit() {
     // This code works fine, but the better option is the use of Observable
-    
+
     // if (typeof(this.route.snapshot.params['id']) !== 'undefined'){
     //   this.idServer = Number(this.route.snapshot.params['id']);
     // }
     // this.server = this.serversService.getServer(this.idServer);
 
-    
+
     // subscribe bind any change in the app
-    this.id = +this.route.snapshot.params['id'];
-    this.server = this.serversService.getServer(this.id);
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.server = this.serversService.getServer(+params['id'])
+    // this.id = +this.route.snapshot.params['id'];
+    // this.server = this.serversService.getServer(this.id);
+    // this.route.params.subscribe(
+    //   (params: Params) => {
+    //     this.server = this.serversService.getServer(+params['id'])
+    //   }
+    // );
+
+    this.route.data.subscribe(
+      (data: Data) => {
+        this.server = data['server'];
       }
     );
   }

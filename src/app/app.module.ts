@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactive-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 
 /*
 ,
@@ -31,7 +33,8 @@ import { CanDeactivateGuard } from './servers/edit-server/can-deactive-guard.ser
     ServerComponent,
     EditServerComponent,
     UserComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +43,11 @@ import { CanDeactivateGuard } from './servers/edit-server/can-deactive-guard.ser
     AppRoutingModule
   ],
   providers: [
-    ServersService, 
-    AuthService, 
+    ServersService,
+    AuthService,
     AuthGuard,
-    CanDeactivateGuard
+    CanDeactivateGuard,
+    ServerResolver
   ],
   bootstrap: [AppComponent]
 })
